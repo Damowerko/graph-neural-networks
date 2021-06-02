@@ -2096,7 +2096,7 @@ class GraphFilter(nn.Module):
         self.F = F
         self.K = K
         self.E = E
-        self.S = None # No GSO assigned yet
+        self.register_buffer("S", None, persistent=False)
         # Create parameters:
         self.weight = nn.parameter.Parameter(torch.Tensor(F, E, K, G))
         if bias:
